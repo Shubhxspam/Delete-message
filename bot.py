@@ -22,7 +22,7 @@ async def on_message_edit(before, after):
     await after.delete()
     await after.channel.send("Sorry, edited messages are not allowed.")
 
-@bot.command("ebroadcast) 
+@bot.command("ebroadcast") 
 async def broadcast(ctx, *, message):
     for guild in bot.guilds:
         for channel in guild.text_channels:
