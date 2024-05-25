@@ -1,0 +1,12 @@
+{
+  "name": "Telegram Delete Edited Messages Bot",
+  "description": "A Telegram bot to delete edited messages immediately.",
+  "repository": "https://github.com/Shubhxspam/Delete-message",
+  "keywords": ["telegram", "bot", "edited messages", "delete"],
+  "env": {
+    "API_TOKEN": {
+      "description": "API Token for the Telegram bot",
+      "required": true
+    }
+  }
+}
