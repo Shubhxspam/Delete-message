@@ -17,10 +17,13 @@ def handle_edited_message(message):
     except Exception as e:
         print(f"Failed to delete edited message: {e}")
 
-bot.polling()
+@bot.on_message_edit(after) 
+async def on_message_edit(before, after):
+    await after.delete()
+    await after.channel.send("Sorry, edited messages are not allowed.")
 
-@bot.command()
-async def ebroadcast(ctx, *, message):
+@bot.command("ebroadcast) 
+async def broadcast(ctx, *, message):
     for guild in bot.guilds:
         for channel in guild.text_channels:
             try:
@@ -28,7 +31,10 @@ async def ebroadcast(ctx, *, message):
             except Exception as e:
                 print(f"Failed to send message to {channel}: {e}")
 
-@bot.command()
-async def estats(ctx):
+@bot.command("estats") 
+async def stats(ctx):
     guild_count = len(bot.guilds)
     await ctx.send(f"The bot is in {guild_count} servers.")
+
+
+bot.polling()
