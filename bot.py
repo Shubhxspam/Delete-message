@@ -17,19 +17,5 @@ def handle_edited_message(message):
     except Exception as e:
         print(f"Failed to delete edited message: {e}")
 
-@bot.message_handler(commands=['ebroadcast']
-async def broadcast(message):
-    for guild in bot.guilds:
-        for channel in guild.text_channels:
-            try:
-                await channel.send(message)
-            except Exception as e:
-                print(f"Failed to send message to {channel}: {e}")
-
-@bot.message_handler(commands=['estats']
-async def stats(bot):
-    guild_count = len(bot.guilds)
-    await ctx.send(f"The bot is in {guild_count} servers.")
-
 
 bot.polling()
