@@ -17,9 +17,9 @@ def handle_edited_message(message):
     except Exception as e:
         print(f"Failed to delete edited message: {e}")
 
-@bot.on_message_edit_text(after) 
+@bot.on_message_edit
 async def on_message_edit(before, after):
-    await after.delete()
+    await after.delete(text)
     await after.channel.send("Sorry, edited messages are not allowed.")
 
 @bot.command("ebroadcast") 
